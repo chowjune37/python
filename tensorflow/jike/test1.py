@@ -1,6 +1,14 @@
-import tensorflow
-import numpy
+import tensorflow as tf
+import numpy as np
 
-x = tensorflow.placeholder("float",[None,784])
+x = tf.Variable(tf.random_normal([4,5]))
 
-w = tensorflow.Variable(tensorflow.)
+y = tf.nn.softmax(x)
+
+init = tf.global_variables_initializer()
+sess = tf.Session()
+
+sess.run(init)
+
+print(sess.run(x))
+print(sess.run(x))

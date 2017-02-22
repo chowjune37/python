@@ -1,0 +1,1 @@
+台湾第一位讲授从无到有上机移植android至实际硬件平台的业界计师，也是台湾开设android porting系列课程数量最多的android讲师。

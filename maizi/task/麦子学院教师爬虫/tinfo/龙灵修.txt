@@ -1,0 +1,1 @@
+致力于Cocos2d-x技术。 热衷Cocos2d-x、CoronaSDK等游戏开发引擎。精通C++语言、精通Java语言、C#、Lua等语言。

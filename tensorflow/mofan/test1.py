@@ -9,7 +9,7 @@ biases = tensorflow.Variable(tensorflow.zeros([1]))
 
 y = Weight*x_data+biases
 
-loss = tensorflow.reduce_mean(tensorflow.abs(y-y_data))
+loss = tensorflow.reduce_mean(tensorflow.square(y-y_data))
 optimizer = tensorflow.train.GradientDescentOptimizer(0.5)
 train = optimizer.minimize(loss)
 
