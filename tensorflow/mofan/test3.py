@@ -13,7 +13,7 @@ init = tensorflow.global_variables_initializer()
 
 with tensorflow.Session() as sess:
     sess.run(init)
-    for _ in range(3): 
+    for _ in range(4): 
         sess.run(updata)
         print(sess.run(state))
 

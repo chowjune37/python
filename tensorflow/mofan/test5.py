@@ -3,7 +3,7 @@ import numpy
 import matplotlib.pyplot
 
 def add_layer(inputs,in_size,out_size,activation_function=None):
-    Weights = tensorflow.Variable(tensorflow.random_normal([in_size,out_size]))
+    Weights = tensorflow.Variable(tensorflow.normal([in_size,out_size]))
     biases = tensorflow.Variable(tensorflow.zeros([1,out_size])+0.1)
     Wx_plus_b = tensorflow.matmul(inputs,Weights)+biases
     if activation_function is None:
@@ -47,4 +47,5 @@ for i in range(1000):
         lines = ax.plot(x_data,prediction_value,'r-',lw=5)
         matplotlib.pyplot.pause(0.2)
 
+print(y_data)
 

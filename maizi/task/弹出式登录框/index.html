@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="fun.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<div class="d1">
+		<input type="button" value="click" id='btn1' />
+	</div>
+	<div class="d2">ggg</div>
+	<div id="fly" >
+	<!-- style="display: none;"> -->
+		<form action="index.html" method='post' onsubmit='return test()'>
+			username:<input type="text" name="username" id="username" /> 紧允许字母数字，下划线，范围6-20个字符
+			<br>
+			password:<input type="password" name="password" id="password" /> 范围6-20个字符
+			<br>
+			email:<input type="text" name="email" id="email" />
+			<br>
+			<input type="submit" value="登陆" />
+		</form>
+			<input type="button" value="退出" id='btn2' />
+	</div>
+<script type="text/javascript">
+	// var btn1 = document.getElementById('btn1');
+	// var fly = document.getElementById('fly');
+	// btn1.addEventListener('click',function(){
+	// 	fly.style.display = "block";
+	// })
+	// var btn2 = document.getElementById('btn2');
+	// btn2.addEventListener('click',function(){
+	// 	fly.style.display = "none";
+	// })
+
+	function test(){
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+	var email = document.getElementById('email').value;
+	if(!/^[\w_]{6,20}$/.test(username)){
+		alert("username error");
+		return false;
+	}
+	if(!/.{6,20}/.test(password)){
+		alert("password error")
+		return false;
+	}
+	if(!/[\w]+@[\w]+\.[\w]+/.test(email)){
+		alert("email error")
+		return false;
+	}
+	}
+
+</script>
+</body>
+</html>

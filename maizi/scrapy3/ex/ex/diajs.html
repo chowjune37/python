@@ -1,0 +1,829 @@
+﻿function trim(str)
+{   
+    return str.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');   
+} 
+function showdiamondimg(img)
+{
+	$(".diamondimgdiv .imgiframe").attr("src","").attr("src",img);
+	$(".diamondimgdiv").css("left",($(window).width()-600)/2).css("top",($(window).height()-600)/2).show();
+};
+function showdiamondvideo(img)
+{
+	$(".diamondimgvideo .videoiframe").attr("scrolling","no").attr("src","").attr("src",img);
+	$(".diamondimgvideo").css("left",($(window).width()-400)/2).css("top",($(window).height()-300)/2).show();
+};
+(function(jQuery){
+	var json="";
+	var j=0;
+	var url_api="http://120.24.68.187:8080/api.php?act=showdiamonds&openid=D09AC4E940143EF6D26A627FDF9F07C5&";
+	var publicfunction = {
+		urldecode:function(zipStr){  
+				var uzipStr="";  
+				for(var i=0;i<zipStr.length;i++){  
+					var chr = zipStr.charAt(i);  
+					if(chr == "+"){  
+						uzipStr+=" ";  
+					}else if(chr=="%"){  
+						var asc = zipStr.substring(i+1,i+3);  
+						if(parseInt("0x"+asc)>0x7f){  
+							uzipStr+=decodeURI("%"+asc.toString()+zipStr.substring(i+3,i+9).toString());  
+							i+=8;  
+						}else{  
+							uzipStr+=AsciiToString(parseInt("0x"+asc));  
+							i+=2;  
+						}  
+					}else{  
+						uzipStr+= chr;  
+					}
+				}  
+			  
+				return uzipStr;  
+			}  
+	}
+	var data_dal={//取数据相关对象
+		server:false,
+		url:false,
+		page_start:false,
+		page_end:false,
+		page_size:false,
+		orderby:"D",
+		orderby1:"D",
+		huilv:huilv,
+		nowpage:"0",
+		url_p:"",
+		url_e:"",
+		counts:"",
+		userid:userid,
+		zk_zktype:zk_zktype,
+		zk:"100",
+		zktype:"0",
+		jsondata:null,
+		getlistrate:function(){
+			var ratearr=$("#cardlist").find(".rate");
+			var resultrate=0;
+			for(i=0;i<ratearr.length;i++)
+			{
+				resultrate+=parseInt($(ratearr[i]).html());
+			}
+			return resultrate;
+		},
+		paramas:{	
+					"Shape":",",
+					"Size":",",
+					"Color":",",
+					"Clarity":",",
+					"Cut":",",
+					"Polish":",",
+					"Symmetry":",",
+					"Flour":",",
+					"Location":",",
+					"nowpage":",",
+					"dbid":",",
+					"pagejs":",",
+					"pxid":",",
+					"px":",",
+					"Cert":",",
+					"without":"",
+					"orderby1":""
+				},
+		getdata:function(url){
+					jQuery("#loading").show();
+					jQuery("#loading_box").css("padding-top",(jQuery(window).height())/2+"px");
+					var url = url_api+data_dal.url+"&actype=json&useropt="+useropt;
+					jQuery.getScript(url,function(){
+						data_dal.jsondata=jsondata;
+						data_dal.act_callback(1);
+					});
+				},
+		act_callback:function(result){
+					jQuery("#loading").hide();
+					view_int.showhtml(result);
+				},
+				Shape_arr : [{"ROUND":"圆形","PRINCESS":"公主方","EMERALD":"祖母绿","OVAL":"椭圆形","MARQUISE":"橄榄","RADIANT":"雷蒂恩","PEAR":"梨形","HEART":"心形","CUSHION":"垫形","TRIANGLE":"三角形","TRILLIANT":"三角形"}],
+		zk_zk_type:function(){
+					arr=jQuery.toJSON(data_dal.zk_zktype);
+					arr=eval("("+arr+")");
+					arr=eval("("+arr+")");
+					data_dal.zk=arr[0].zk;
+					data_dal.zktype=arr[1].zktype;
+				}
+
+
+				
+	};//取数据相关对象
+	var view_int={//展示相关数据
+			showhtml:function(data){
+				    var json=data_dal.jsondata;
+					jQuery(".f2 i").text(data_dal.huilv);
+					if(json.length>1)
+					{
+						data_dal.counts = json[0]['show_page'];
+						jQuery("#total").text(data_dal.counts);
+						var jsonhtm = "";
+						var classname = "";
+						view_int.viewhtml=view_int.table_head();
+						for(var j=1;j<json.length;j++)
+						{
+						   view_int.viewhtml+=view_int.table_row(json[j],classname,j);
+						}
+						view_int.viewhtml+=view_int.table_foot;					
+					}
+					else
+					{
+						jQuery("#count span").text("0");
+						view_int.viewhtml="没有符合条件的钻石!"
+					}
+					jQuery(".result-list").html(view_int.viewhtml+view_int.splitpage());
+	},
+			table_head:function(){
+				returnhtml='<table style="border-left:1px solid #ccc;border-right:1px solid #ccc;" cellspacing="0" id="tb" class="listtab" cellpadding="0" border="0"><thead><tr><td>选择</td>';
+				if(userid==0)//图片
+				{
+					if(show_config[4]>0)
+					{
+						returnhtml+='<td>图片</td>';
+					}
+				}else
+				{
+					if(show_config[5]>0)
+					{
+						returnhtml+='<td>图片</td>';
+					}
+				}
+				
+				if(userid==0)
+				{
+					if(show_config[2]>0)
+					{
+						returnhtml+='<td>奶</td><td>咖</td>';
+					}
+				}else
+				{
+					if(show_config[3]>0)
+					{
+						returnhtml+='<td>奶</td><td>咖</td>';
+					}
+				}
+				returnhtml+='<td>形状</td>';
+				returnhtml+='<td><a title="按钻重排序" href="javascript:;" name="order_type" value="1" order="0" style="color:#fff;">钻重</a></td><td>颜色</td><td>净度</td><td>切工</td><td>抛光</td><td>对称</td><td>荧光</td><td>直径</td><td>深度</td><td>台面</td><td>货号</td><td class="w_85">证书号码</td><td>证书</td>';
+				if(userid==0)
+				{
+					if(show_config[0]>0)
+					{
+						returnhtml+='<td>扣点</td>';
+					}
+				}
+				else
+				{
+					if(show_config[1]>0)
+					{
+						returnhtml+='<td>扣点</td>';
+					}
+				}
+				returnhtml+='<td class="w_65"><a title="按价格排序" href="javascript:;" name="order_type" value="3" order="0" style="color:#fff">折后价CNY</a></td>';
+				if(userid==0)//图片
+				{
+					if(show_config[6]>0)
+					{
+						returnhtml+='<td title="美元">国际报价USD</td>';
+					}
+				}else
+				{
+					if(show_config[7]>0)
+					{
+						returnhtml+='<td title="美元">国际报价USD</td>';
+					}
+				}
+			returnhtml+='<td class="w_65">操作</td></tr></thead><tbody id="searchList">';
+			return returnhtml;
+			},
+			table_foot:'</tbody></table>',
+			table_row:function(jda,classname,j){
+		
+		Ref=jda.Ref;
+		if(jda.Shape)
+		{
+			Shape=data_dal.Shape_arr[0][jda.Shape];
+			if(!Shape)
+				Shape='-';
+		}
+		else
+			Shape='-';
+		Brc=jda.Brc;
+		if(!Brc) Brc="-";
+		Size=jda.Size;
+		Color=jda.Color;
+		Clarity=jda.Clarity;
+		Cut=jda.Cut;
+		Polish=jda.Polish;
+		Flour=jda.Flour;
+		Symmetry=jda.Sym;
+		M1=jda.M1;
+		M2=jda.M2;
+		M3=jda.M3;
+		Depth=jda.Depth;
+		Table=jda.Table;
+		ReportNo=jda.ReportNo;
+		Cert=jda.Cert;
+		Milky=jda.Milky;
+		Browness=jda.Browness;
+		Rap=jda.Rap;
+		var certurl="";
+	    if(ReportNo)
+	    {
+		   switch(trim(Cert))
+		   {
+		   		case "GIA":
+		   			certurl="<a style='color:#ff0000;' target='blank' href='http://www.gia.edu/cs/Satellite?reportno="+ReportNo+"&childpagename=GIA%2FPage%2FReportCheck&pagename=GIA%2FDispatcher&c=Page&cid=1355954554547'>"+ReportNo+"</a>";
+		   			break;
+		   		case "IGI":
+		   			certurl="<a style='color:#ff0000;' target='blank' href='http://www.igiworldwide.com/search_report.aspx' target='blank'>"+ReportNo+"</a>";
+		   			break;
+		   		case "HRD":
+		   			certurl="<a style='color:#ff0000;' target='blank' href='http://www.hrdantwerplink.be/?record_number="+ReportNo+"&weight="+Size+"'>"+ReportNo+"</a>";
+		   			break;
+		   		default:
+		   			certurl=ReportNo;
+		   			break;
+		   			
+		   }
+	    }	
+		MD5=jda.MD5;
+		var ns="";
+		var ks="";
+		if(Milky&&Milky!='Non'&&Milky!='-')
+		{
+			if(Milky=='MILKY1'||Milky=='CB'||Milky=='CB1')
+			var ns="<font color=red>浅</font>";
+			else
+			var ns="<font color=red>奶</font>";
+		}
+		if(Browness&&Browness!='Non'&&Browness!='-'&&Browness!='White'&&Browness!='WHT')
+		{
+			if(Browness=='LC'||Browness=='BROWN1'||Browness.indexOf('LB')!='-1')
+			var ks="<font color=red>浅</font>";
+			else
+			var ks="<font color=red>咖</font>";
+		}
+		Disc=jda.Disc;
+		Rate=jda.Rate;
+		//Caigou=publicfunction.urldecode(jda.caigou);
+		Caigou="";
+		if(j%2==0){
+			returnhtml='<tr style="background:#d6d5d5" class="lzlisttr" cert="'+Cert+'" caigou="'+Caigou+'" f="'+ReportNo+'" num="'+j+'"><td>'+(userid>0?'<input type="checkbox" /></td>':'');
+		}else{
+			returnhtml='<tr class="lzlisttr" caigou="'+Caigou+'" cert="'+Cert+'" f="'+ReportNo+'" num="'+j+'"><td>'+(userid>0?'<input type="checkbox" /></td>':'');
+		}
+		if(userid==0)//图片
+		{
+			if(show_config[4]>0)
+			{
+				returnhtml+='<td>';
+				if(jda.pic!='')
+				{
+				returnhtml+='<a onclick=showdiamondimg("http://120.24.68.187:8080/diamondpic.php?hh='+jda.Ref+'&cno='+jda.ReportNo+'&typ=1"); href="javascript:void(0);" class="inside" type="0" title="钻石图片"><img src="/images/Image/camicon.jpg" alt="钻石视频"></a>';
+				}
+				if(jda.video!='')
+				{
+				returnhtml+='<a onclick=showdiamondvideo("http://120.24.68.187:8080/diamondpic.php?hh='+jda.Ref+'&act=lzvideo"); href="javascript:void(0);" class="inside" type="0" title="钻石图片"><img src="/images/Image/video.jpg" alt="钻石图片"></a>';
+				}
+				returnhtml+='</td>';
+			}
+		}else
+		{
+			if(show_config[5]>0)
+			{
+				returnhtml+='<td>';
+				if(jda.pic!='')
+				{
+				returnhtml+='<a onclick=showdiamondimg("http://120.24.68.187:8080/diamondpic.php?hh='+jda.Ref+'&cno='+jda.ReportNo+'&typ=1"); href="javascript:void(0);" class="inside" type="0" title="钻石图片"><img src="/images/Image/camicon.jpg" alt="钻石视频"></a>';
+				}
+				if(jda.video!='')
+				{
+				returnhtml+='<a onclick=showdiamondvideo("http://120.24.68.187:8080/diamondpic.php?hh='+jda.Ref+'&act=lzvideo"); href="javascript:void(0);" class="inside" type="0" title="钻石图片"><img src="/images/Image/video.jpg" alt="钻石图片"></a>';
+				}
+				returnhtml+='</td>';
+			}
+		}
+		var sys_status='';
+		if(jda.sys_status>0)
+			sys_status='<span style="color:#f00">H</span>';
+		else
+			sys_status='';
+		
+		if(userid==0)
+		{
+			if(show_config[2]>0)
+			{
+				returnhtml+='<td>'+ns+'</td><td>'+ks+'</td>';
+			}
+		}else
+		{
+			if(show_config[3]>0)
+			{
+				returnhtml+='<td>'+ns+'</td><td>'+ks+'</td>';
+			}
+		}
+		returnhtml+='<td>'+sys_status+Shape+'</td>';
+		returnhtml+='<td>'+Size+'</td><td>'+Color+'</td><td>'+Clarity+'</td><td>'+Cut+'</td><td>'+Polish+'</td><td>'+Symmetry+'</td><td>'+Flour+'</td><td>'+M1+'/'+M2+'/'+M3+'</td><td>'+Depth+'</td><td>'+Table+'</td><td Ref='+Ref+' class="Ref">'+Ref+'</td><td><font color="red" Style="display:block;">'+(userid>0?certurl:'登陆可见')+'</font></td><td style="text-align:right" width="50">'+Cert+'</td>';
+		if(userid==0)
+		{
+			if(show_config[0]>0)
+			{
+				returnhtml+='<td>'+Disc+'</td>';
+			}
+		}
+		else
+		{
+			if(show_config[1]>0)
+			{
+				returnhtml+='<td>'+Disc+'</td>';
+			}
+		}
+		returnhtml+='<td><font color="blue" class="rate">'+Rate+'</font></td>';
+		if(userid==0)//图片
+		{
+			if(show_config[6]>0)
+			{
+				returnhtml+='<td title="美元">'+Rap+'</td>';
+			}
+		}else
+		{
+			if(show_config[7]>0)
+			{
+				returnhtml+='<td title="美元">'+Rap+'</td>';
+			}
+		}
+		returnhtml+='<td>'+(userid>0?'<a class="buy_btn" ref="'+Ref+'" href="javascript:">订购</a>':'请登陆');
+		if(show_config[8]>0&&userid>0)
+		{
+			returnhtml+='<a class="diy_btn" onclick="diysession(\''+Ref+'\',\''+Size+'\');" href="javascript:" ref="'+Ref+'">选托</a>';
+		}
+		returnhtml+='</td>';//</tr>';
+		returnhtml+='</tr>';
+		return returnhtml;
+//		return '<tr class="lzlisttr" f="'+MD5+'" num="'+j+'"><td><input type="checkbox" /></td><td><a href="javascript:void(0);" class="inside" type="0" title="钻石图片"><img src="/images/Image/camicon.jpg" alt="钻石图片"></a></td>
+//<td>'+ns+'</td><td>'+ks+'</td><td>'+Size+'</td><td>'+Color+'</td><td>'+Clarity+'</td><td>'+Cut+'</td><td>'+Polish+'</td><td>'+Symmetry+'</td><td>'+Flour+'</td><td><a href="javascript:;" title="'+M1+' x '+M2+' x '+M3+'">'+M1+'</a></td><td>'+Depth+'</td><td>'+Table+'</td><td>'+Ref+'</td><td><font color="red">'+certurl+'</font></td><td>'+Cert+'</td>
+//<td><font color="blue" id="rate">'+Rate+'</font></td> <td><a class="buy_btn" ref="'+Ref+'" href="javascript:">订购</a></td></tr>';
+	},
+			viewhtml:"",
+			splitpage:function(){
+			var pagecount= Math.ceil(data_dal.counts/30);
+			var splitpagehtml="<div class='pagewarp splitpage' id='pagestr'><ul><li><a ref='first' href='javascript:'>首页</a></li><li><a ref='pre' href='javascript:'>上一页</a></li>";
+			if(data_dal.counts/30<=10)
+			{
+				for(var j=0;j<pagecount;j++)
+				{
+					if(data_dal.nowpage==j*30)
+						splitpagehtml+="<li><a class='cur' ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+					else
+						splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+			}
+			else if((data_dal.nowpage/30)<=5)
+			{
+				for(var j=0;j<data_dal.nowpage/30;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+				splitpagehtml+="<li><a ref='"+((data_dal.nowpage/30)+1)+"' class='cur' nowpage='0' href='javascript:'>"+((data_dal.nowpage/30)+1)+"</a></li>";
+				for(var j=(data_dal.nowpage/30)+1;j<10;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+			}
+			else if((data_dal.nowpage/30)>pagecount-5)
+			{
+				for(var j=(data_dal.nowpage/30)-10;j<data_dal.nowpage/30;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+				splitpagehtml+="<li><a class='cur' ref='"+((data_dal.nowpage/30)+1)+"' href='javascript:'>"+((data_dal.nowpage/30)+1)+"</a></li>";
+				for(var j=(data_dal.nowpage/30)+1;j<pagecount;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+			}
+			else
+			{
+				for(var j=(data_dal.nowpage/30)-4;j<data_dal.nowpage/30;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+				splitpagehtml+="<li><a class='cur' ref='"+((data_dal.nowpage/30)+1)+"' href='javascript:'>"+((data_dal.nowpage/30)+1)+"</a></li>";
+				for(var j=(data_dal.nowpage/30)+1;j<(data_dal.nowpage/30)+5;j++)
+				{
+					splitpagehtml+="<li><a ref='"+(j+1)+"' href='javascript:'>"+(j+1)+"</a></li>";
+				}
+			}
+			splitpagehtml+="<li><a ref='next' href='javascript:'>下一页</a></li><li><a  ref='last' href='javascript:'>最后一页</a></li></ul></div>";
+			return splitpagehtml; 
+			
+				
+	}
+		};//展示相关数据
+	var data_opt={//展示相关对象
+			geturl:function(){
+			data_dal.paramas.Shape =  jQuery('#Shape').val();
+			data_dal.paramas.Color =  jQuery('#Color').val();
+			data_dal.paramas.Clarity =  jQuery('#Clarity').val();
+			data_dal.paramas.Cut =  jQuery('#Cut').val();
+			data_dal.paramas.Polish =  jQuery('#Polish').val();
+			data_dal.paramas.Cert =  jQuery('#Cert').val();
+			data_dal.paramas.Fluor =  jQuery('#Fluor').val();
+			data_dal.paramas.Symmetry =  jQuery('#Symmetry').val();
+			data_dal.paramas.Location =  jQuery('#Location').val();
+			data_dal.paramas.S_1 = jQuery('#S_1').val();
+			data_dal.paramas.S_2 = jQuery('#S_2').val();
+			data_dal.paramas.J_1 = jQuery('#J_1').val();
+			data_dal.paramas.J_2 = jQuery('#J_2').val();
+			data_dal.paramas.ZS = jQuery('#ZS').val();
+			data_dal.paramas.HH = jQuery('#HH').val();
+			data_dal.paramas.px = jQuery('#px').val();
+			data_dal.paramas.orderby1 = jQuery('#orderby1').val();
+			data_dal.paramas.without = jQuery('#withoutInput').val();
+			data_dal.paramas.pxid = jQuery('#pxid').val();
+			data_dal.paramas.nowpage = jQuery('#nowpage').val();
+			data_dal.paramas.pagejsnum=jQuery('#pagejsnum').val();
+			data_dal.paramas.times = new Date().getTime();
+			var url = "s=0&disc="+data_dal.disc+"&huilv="+data_dal.huilv+"&typ=lz&getdate="+data_dal.paramas.times+"&userid="+data_dal.userid;
+			data_dal.url_p="&s=0";
+			data_dal.url_e="&disc="+data_dal.disc+"&huilv="+data_dal.huilv+"&typ=lz&getdate="+data_dal.paramas.times+"&userid="+data_dal.userid;
+			if(data_dal.paramas.Shape!=",") url = url + "&Shape="+data_dal.paramas.Shape;
+			if(data_dal.paramas.Color!=",") url = url + "&Color="+data_dal.paramas.Color;
+			if(data_dal.paramas.Clarity!=",") url = url + "&Clarity="+data_dal.paramas.Clarity;
+			if(data_dal.paramas.Cut!=",") url = url + "&Cut="+data_dal.paramas.Cut;
+			if(data_dal.paramas.Polish!=",") url = url + "&Polish="+data_dal.paramas.Polish;
+			if(data_dal.paramas.Cert!=",") url = url + "&Cert="+data_dal.paramas.Cert;
+			if(data_dal.paramas.Fluor!=",") url = url + "&Fluor="+data_dal.paramas.Fluor;
+			if(data_dal.paramas.Symmetry!=",") url = url + "&Symmetry="+data_dal.paramas.Symmetry;
+			if(data_dal.paramas.Location!=",") url = url + "&Location="+data_dal.paramas.Location;
+
+			if(data_dal.paramas.pagejsnum!=",") url = url + "&pagejsnum="+data_dal.paramas.pagejsnum;
+			if(data_dal.paramas.S_1) url = url + "&S_1="+data_dal.paramas.S_1;
+			if(data_dal.paramas.S_2) url = url + "&S_2="+data_dal.paramas.S_2;
+			if(data_dal.paramas.J_1) url = url + "&J_1="+data_dal.paramas.J_1;
+			if(data_dal.paramas.J_2) url = url + "&J_2="+data_dal.paramas.J_2;
+			if(data_dal.paramas.ZS) url = url + "&ZS="+data_dal.paramas.ZS;
+			if(data_dal.paramas.HH) url = url + "&HH="+data_dal.paramas.HH;
+			if(data_dal.paramas.without) url = url + "&milkybrown="+data_dal.paramas.without;
+			if(data_dal.paramas.orderby1) url = url + "&orderby1="+data_dal.paramas.orderby1;
+			if(jQuery("#discorder.un").length>0)
+			{
+				url+="&orderby1=D";
+			}
+			//if(data_dal.paramas.px) url = url + "&px="+data_dal.paramas.px;
+			//if(data_dal.paramas.pxid) url = url + "&pxid="+data_dal.paramas.pxid;
+			return url;
+			},
+			getsplitpage:function(){
+					
+				}
+		};
+		
+		/*update by aj*/
+		var data_opter={//展示相关对象
+			geturl:function(){
+			data_dal.paramas.Shape =  jQuery('#Shape').val();
+			data_dal.paramas.Color =  jQuery('#Color').val();
+			data_dal.paramas.Clarity =  jQuery('#Clarity').val();
+			data_dal.paramas.Cut =  jQuery('#Cut').val();
+			data_dal.paramas.Polish =  jQuery('#Polish').val();
+			data_dal.paramas.Cert =  jQuery('#Cert').val();
+			data_dal.paramas.Fluor =  jQuery('#Fluor').val();
+			data_dal.paramas.Symmetry =  jQuery('#Symmetry').val();
+			data_dal.paramas.Location =  jQuery('#Location').val();
+			data_dal.paramas.S_1 = jQuery('#S_1').val();
+			data_dal.paramas.S_2 = jQuery('#S_2').val();
+			data_dal.paramas.J_1 = jQuery('#J_1').val();
+			data_dal.paramas.J_2 = jQuery('#J_2').val();
+			data_dal.paramas.ZS = jQuery('#ZS').val();
+			data_dal.paramas.HH = jQuery('#HH').val();
+			data_dal.paramas.px = jQuery('#px').val();
+			data_dal.paramas.orderby1 = jQuery('#orderby1').val();
+			data_dal.paramas.without = jQuery('#withoutInput').val();
+			data_dal.paramas.pxid = jQuery('#pxid').val();
+			data_dal.paramas.nowpage = jQuery('#nowpage').val();
+			data_dal.paramas.pagejsnum=jQuery('#pagejsnum').val();
+			data_dal.paramas.times = new Date().getTime();
+			var url = "s=0&disc="+data_dal.disc+"&huilv="+data_dal.huilv+"&typ=lz&getdate="+data_dal.paramas.times+"&userid="+data_dal.userid;
+			data_dal.url_p="&s=0";
+			data_dal.url_e="&disc="+data_dal.disc+"&huilv="+data_dal.huilv+"&typ=lz&getdate="+data_dal.paramas.times+"&userid="+data_dal.userid;
+			if(data_dal.paramas.Shape!=",") url = url + "&Shape="+data_dal.paramas.Shape;
+			if(data_dal.paramas.Color!=",") url = url + "&Color="+data_dal.paramas.Color;
+			if(data_dal.paramas.Clarity!=",") url = url + "&Clarity="+data_dal.paramas.Clarity;
+			if(data_dal.paramas.Cut!=",") url = url + "&Cut="+data_dal.paramas.Cut;
+			if(data_dal.paramas.Polish!=",") url = url + "&Polish="+data_dal.paramas.Polish;
+			if(data_dal.paramas.Cert!=",") url = url + "&Cert="+data_dal.paramas.Cert;
+			if(data_dal.paramas.Fluor!=",") url = url + "&Fluor="+data_dal.paramas.Fluor;
+			if(data_dal.paramas.Symmetry!=",") url = url + "&Symmetry="+data_dal.paramas.Symmetry;
+			if(data_dal.paramas.Location!=",") url = url + "&Location="+data_dal.paramas.Location;
+
+			if(data_dal.paramas.pagejsnum!=",") url = url + "&pagejsnum=200000";
+			if(data_dal.paramas.S_1) url = url + "&S_1="+data_dal.paramas.S_1;
+			if(data_dal.paramas.S_2) url = url + "&S_2="+data_dal.paramas.S_2;
+			if(data_dal.paramas.J_1) url = url + "&J_1="+data_dal.paramas.J_1;
+			if(data_dal.paramas.J_2) url = url + "&J_2="+data_dal.paramas.J_2;
+			if(data_dal.paramas.ZS) url = url + "&ZS="+data_dal.paramas.ZS;
+			if(data_dal.paramas.HH) url = url + "&HH="+data_dal.paramas.HH;
+			if(data_dal.paramas.without) url = url + "&milkybrown="+data_dal.paramas.without;
+			if(data_dal.paramas.orderby1) url = url + "&orderby1="+data_dal.paramas.orderby1;
+			if(jQuery("#discorder.un").length>0)
+			{
+				url+="&orderby1=D";
+			}
+			//if(data_dal.paramas.px) url = url + "&px="+data_dal.paramas.px;
+			//if(data_dal.paramas.pxid) url = url + "&pxid="+data_dal.paramas.pxid;
+			return url;
+			},
+			getsplitpage:function(){
+					
+				}
+		};
+		/*update by aj*/
+		
+		//展示相关对象
+	var buyinfo={
+			addtocart:function(ref)
+			{
+				Ajax.call("/optdiamond.php?diamondref="+ref+"&userid="+data_dal.userid,"",buyinfo.cartok,"POST","TEXT")
+			},
+			cartok:function(data){
+				if(data!='no')
+				{
+					jQuery("#addtoCart .lzinfo").html(data);
+					jQuery("#addtoCart").show().dialog({
+						title:"查看购物车",
+						modal:true
+					});
+				}
+				else
+				{
+					alert("操作超时,需重新登陆~");
+					window.open("user.php");
+				}
+			}
+
+
+	}
+	jQuery(function(){
+		data_dal.zk_zk_type();
+		
+		//按下enter 触发搜索按钮
+		var key_enter =0; 
+		$(window).keydown(function(event){
+			if(!event) event = window.event;//火狐中是 window.event
+			if((event.keyCode || event.which) == 13){
+				jQuery(".search-bnt.sub").click();
+				key_enter = 1;
+			}	
+		});
+		jQuery(".search-bnt.sub").click(function(){
+					data_dal.url=data_opt.geturl();
+					data_dal.getdata(data_dal.url);
+					return false;
+				});
+		jQuery(".search-bnt.exp").click(function(e){
+				e.preventDefault();
+				data_dal.url=data_opter.geturl();
+				if(key_enter==1){
+					key_enter =0;
+				}else{
+					window.open("optdiamond.php?subact=output&"+data_dal.url);
+				}
+		});		
+			jQuery(".select-box2 a").click(function(){		
+					var p_ref=jQuery(this).parent().attr("ref");
+					var s_ref=jQuery(this).attr("ref");	
+				    if(jQuery(this).attr("class").indexOf("un")!=-1)
+				    {
+				    	jQuery(this).removeClass("un");      
+				    }
+				    else
+				    {
+				    	jQuery(this).addClass("un");      
+				    }
+					sibarr=jQuery(this).parent().parent().find("li");
+
+					var value="";
+					for(i=0;i<sibarr.length;i++)
+					{
+						if(jQuery(sibarr[i]).find("a").attr("class").indexOf("un")!=-1)
+						{
+							value+=jQuery(sibarr[i]).find("a").attr("ref")+",";
+						}
+					}
+					if(value!="")
+					{
+						jQuery("#"+p_ref).val(value);
+					}
+					else
+					{
+						jQuery("#"+p_ref).val(",");
+					}
+				});
+				jQuery(".select-box a").click(function(){				
+					var p_ref=jQuery(this).parent().attr("ref");
+					var s_ref=jQuery(this).attr("ref");	
+				    if(jQuery(this).attr("class").indexOf("un")!=-1)
+				    {
+				    	jQuery(this).removeClass("un");      
+				    }
+				    else
+				    {
+				    	jQuery(this).addClass("un");      
+				    }
+				    
+					sibarr=jQuery(this).parent().parent().find("li");
+					var value="";
+					for(i=0;i<sibarr.length;i++)
+					{
+						if(jQuery(sibarr[i]).find("a").attr("class").indexOf("un")!=-1)
+						{
+							value+=jQuery(sibarr[i]).find("a").attr("ref")+",";
+						}
+					}
+					if(value!="")
+					{
+						jQuery("#"+p_ref).val(value);
+					}
+					else
+					{
+						jQuery("#"+p_ref).val(",");
+					}
+				});
+
+				jQuery(".change_pagesize").click(function(){
+					jQuery(this).addClass("on").siblings().removeClass("on");
+					jQuery("#pagejsnum").val(jQuery(this).text());
+					jQuery(".search-bnt.sub").click();
+				});
+
+				jQuery("#3EX").click(function(){
+					jQuery(".cut-list a[title=EX]").click();
+				});
+				jQuery("#3VG").click(function(){
+					jQuery(".cut-list a[title=VG]").click();
+				});
+				jQuery("#without").click(function(){
+					jQuery(this).toggleClass("un");
+					if(jQuery(this).attr("class").replace(/(^\s*)|(\s*$)/g, "")=="un")
+					{
+						jQuery("#withoutInput").val("no");
+					}
+					else
+					{
+						jQuery("#withoutInput").val("");
+					}
+				});
+				jQuery("#discorder").click(function(){
+					jQuery(this).toggleClass("un");
+				});
+				jQuery(".splitpage a").live("click",function(){
+					switch(jQuery(this).attr("ref"))
+					{
+						case "first":
+							data_dal.nowpage=0;
+							break;
+						case "pre":
+							if(data_dal.nowpage>0)
+								data_dal.nowpage=parseInt(data_dal.nowpage)-30;
+							break;
+						case "next":
+							if(data_dal.nowpage<(Math.ceil(data_dal.counts/30)-1)*30)
+								data_dal.nowpage=parseInt(data_dal.nowpage)+30;
+							break;
+						case "last":
+							data_dal.nowpage=parseInt((Math.ceil(data_dal.counts/30)-1))*30;
+							break;
+						default:
+							data_dal.nowpage=(jQuery(this).text()-1)*30;
+							break;
+					}
+					var url=data_dal.url_p+data_dal.nowpage+data_dal.url_e;
+					if(data_dal.paramas.Shape!=",") url = url + "&Shape="+data_dal.paramas.Shape;
+					if(data_dal.paramas.Color!=",") url = url + "&Color="+data_dal.paramas.Color;
+					if(data_dal.paramas.Clarity!=",") url = url + "&Clarity="+data_dal.paramas.Clarity;
+					if(data_dal.paramas.Cut!=",") url = url + "&Cut="+data_dal.paramas.Cut;
+					if(data_dal.paramas.Polish!=",") url = url + "&Polish="+data_dal.paramas.Polish;
+					if(data_dal.paramas.Cert!=",") url = url + "&Cert="+data_dal.paramas.Cert;
+					if(data_dal.paramas.Fluor!=",") url = url + "&Fluor="+data_dal.paramas.Fluor;
+					if(data_dal.paramas.Symmetry!=",") url = url + "&Symmetry="+data_dal.paramas.Symmetry;
+					if(data_dal.paramas.Location!=",") url = url + "&Location="+data_dal.paramas.Location;
+					if(data_dal.paramas.pagejsnum!=",") url = url + "&pagejsnum="+data_dal.paramas.pagejsnum;
+					if(data_dal.paramas.S_1) url = url + "&S_1="+data_dal.paramas.S_1;
+					if(data_dal.paramas.S_2) url = url + "&S_2="+data_dal.paramas.S_2;
+					if(data_dal.paramas.J_1) url = url + "&J_1="+data_dal.paramas.J_1;
+					if(data_dal.paramas.J_2) url = url + "&J_2="+data_dal.paramas.J_2;
+					if(data_dal.paramas.ZS) url = url + "&ZS="+data_dal.paramas.ZS;
+					if(data_dal.paramas.HH) url = url + "&HH="+data_dal.paramas.HH;
+					if(data_dal.paramas.without) url = url + "&milkybrown="+data_dal.paramas.without;
+					if(data_dal.paramas.orderby1) url = url + "&orderby1="+data_dal.paramas.orderby1;
+					jQuery("#loading").show();
+					jQuery("#loading_box").css("padding-top",(jQuery(window).height())/2+"px");
+					var url = url_api+url+"&actype=json&useropt="+useropt;
+					jQuery.getScript(url,function(){
+						data_dal.jsondata=jsondata;
+						data_dal.act_callback(1);
+					});
+					//Ajax.call("http://api.513ex.com:8080/api.php?act=showdiamonds&openid=D09AC4E940143EF6D26A627FDF9F07C5&"+url+"&useropt="+useropt,"",data_dal.act_callback,"GET","TEXT");					
+				});
+
+				jQuery(".buy_btn").live("click",function(){
+					buyinfo.addtocart(jQuery(this).attr("ref"))
+				});
+				jQuery("#carat-set").live("change",function(){
+					arr=jQuery(this).val().split("-");
+					jQuery("#S_1").val(arr[0]);
+					jQuery("#S_2").val(arr[1]);
+				});
+				jQuery("#price-set").live("change",function(){
+					arr=jQuery(this).val().split("-");
+					jQuery("#J_1").val(arr[0]);
+					jQuery("#J_2").val(arr[1]);
+				});
+				jQuery("#nobrownmilky").click(function(){
+					jQuery(this).addClass("select_pra");
+				});
+				var num=0;
+				var cartcount = document.getElementById('cartcount_1');
+				var cartcount2 = document.getElementById('cartcount_2');
+				jQuery(".lzlisttr input:checkbox").live("change",function(){
+					if(!$(this).attr("checked")){
+						$("#cardlist").find(".Ref[Ref="+$(this).parent().parent().find(".Ref").html()+"]").parent().remove();
+						if(num>0){
+							num--;
+						}
+					}else{
+						var html_str=$(this).parent().parent().html();  //lijianwei 去掉单选框 $(this).parent().parent().html()
+						html_str = html_str.replace('<td><input type="checkbox"></td>','');
+						$("<tr>"+html_str+"<td class='cartlist_item_delete'>删除</td> </tr>").appendTo($("#cardlist"));
+						num++;
+					}
+					cartcount.innerHTML=num;
+					cartcount2.innerHTML=num;
+					$("#totaler").html(cartcount.innerHTML);
+					$("#total_price").html(data_dal.getlistrate());
+					$(".snap-cart").show();
+				});
+				jQuery(".lzlisttr").live("mouseenter",function(e){
+			
+					if($(this).attr("caigou"))
+					{
+						$("#twodimension .caigou").html("采购:"+$(this).attr("caigou"));
+						$("#twodimension").css("top",e.pageY+40).css("left",e.pageX+40).show();
+					}
+					if($(this).attr("f")=="NO")
+					{
+						$("#twodimension img").hide();
+						$("#twodimension .qrcode").hide();
+					}
+					else
+					{
+						var num=parseInt(($(this).attr("num")-1)*30)+parseInt(660)+"px";
+						var imgurl="/optdiamond.php?act=giveqrcode&ref="+$(this).attr('f')+"&cert="+$(this).attr("cert");
+						$("#twodimension").css("top",$(this).offset().top+40).css("left",$(this).offset().left+1213).show();
+						if($(this).attr("cert"))
+						{
+							$("#twodimension .qrcode").show();
+							$("#twodimension img").show();
+							$("#twodimension").css("top",num);
+							$("#twodimension img").attr("src",imgurl);
+						}
+					}
+					
+					return false;
+				});
+				jQuery(".lzlisttr").live("leave",function(){
+					$("#twodimension").hide();
+					return false;
+				});
+				jQuery(".cartguid").click(function(){
+					$(".snap-cart").toggle();
+				});
+				jQuery(".cartlist_item_delete").live("click",function(){
+					$(this).parent().remove();
+					if(num>0){
+						num--;
+					}
+					cartcount.innerHTML=num;
+					cartcount2.innerHTML=num;
+					$("#total_price").html(data_dal.getlistrate());
+				})
+				jQuery(".snap-bnt").click(function(){
+					var hhs=$("#cardlist").find(".Ref");
+					hh=[];
+					for(i=0;i<hhs.length;i++)
+					{
+						hh[i]=$(hhs[i]).html();
+					}
+					hh_s=hh.join("|");
+					//alert(hh_s)
+					if(hh_s)
+					buyinfo.addtocart(hh_s)
+				});
+				jQuery(".search-bnt.sub").click();
+				
+		});
+
+	}(jQuery));

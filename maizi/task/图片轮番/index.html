@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+	<script src="public/jquery-3.1.1.js" type="text/javascript" charset="utf-8" ></script>
+	<style type="text/css">
+		body {text-align: center;}
+		#main {width: 960px;height: 600px; margin: 0px auto;}
+		#up {height: 500px;margin: 5px;}
+		#down {height: 100px;margin: 5px;}
+		#down li{width: 85px;height: 100px;margin: 5px; float: left;list-style-type: none;padding: 0px;}
+		#up img {width: 940px;height: 500px;}
+		li img {width: 85px;height: 90px;}
+		ul {margin: 0px;padding: 0px;}
+	</style>
+</head>
+<body>
+<div id="main">
+	<div id="up">
+		<img src="img/img10.jpg">
+	</div>
+	<div id="down">
+		<ul>
+			<li id="l1"><img src="img/img1.jpg"></li>
+			<li id="l2"><img src="img/img2.jpg"></li>
+			<li id="l3"><img src="img/img3.jpg"></li>
+			<li id="l4"><img src="img/img4.jpg"></li>
+			<li id="l5"><img src="img/img5.jpg"></li>
+			<li id="l6"><img src="img/img6.jpeg"></li>
+			<li id="l7"><img src="img/img7.jpg"></li>
+			<li id="l8"><img src="img/img8.jpg"></li>
+			<li id="l9"><img src="img/img9.jpg"></li>
+			<li id="l10"><img src="img/img10.jpg"></li>
+		</ul>
+	</div>
+</div>
+</body>
+	<script type="text/javascript">
+		$(function(){
+			var i=0;
+				var interval = setInterval(function(){
+					if(i == 10){
+						i = 0;
+					}
+					i++;
+					$("#up img").attr("src",$("#l"+i+" img").attr("src"));
+				},2000);
+			$("li img").hover(function(){
+				$("#up img").attr("src",$(this).attr("src"));
+			});
+		});
+	</script>
+</html>
