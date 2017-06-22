@@ -1,0 +1,781 @@
+Assertion failed: ../../src/BaseClient.cpp:ProcessPublicKeyPacket:2143: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b0293a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x477e96]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493fdb]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b011fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c876e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c877db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87b8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87c13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87c75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c886fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b03317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263c5ac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263c5bb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f81242c76a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263e5ed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b43353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b08666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b94f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f8124a09830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2143): assert "Assert failure" failed in ProcessPublicKeyPacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessSignaturePacket:2169: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b0293a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x46f1b6]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493f2f]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b011fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c876e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c877db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87b8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87c13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c87c75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125c886fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b03317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263c5ac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263c5bb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f812355a712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f81242c76a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f81263e5ed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b43353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b08666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f8125b94f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f8124a09830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2169): assert "Assert failure" failed in ProcessSignaturePacket().
+ 2017-06-12 21:50:05: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-12 21:50:05: Checking if there is an instance already running...
+ 2017-06-12 21:50:05: No other instances are running.
+ 2017-06-12 21:50:05: 监听Socket: Ok.
+ 2017-06-12 21:50:05: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-12 21:50:05: 载入 PartFile 1 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 2 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 3 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 4 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 5 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 6 之 7
+ 2017-06-12 21:50:05: 载入 PartFile 7 之 7
+ 2017-06-12 21:50:05: 所有 PartFile 已经载入。
+ 2017-06-12 21:50:05: 将文件/home/june/.aMule/Temp/002.part.met加入共享
+ 2017-06-12 21:50:05: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-12 21:50:05: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-12 21:50:05: Asio thread 1 started
+ 2017-06-12 21:50:05: Asio thread 2 started
+ 2017-06-12 21:50:05: Asio thread 3 started
+ 2017-06-12 21:50:05: Asio thread 4 started
+ 2017-06-12 21:53:22: 现在，正在退出主程序...
+ 2017-06-12 21:53:22: aMule 正在退出：中止内核。
+ 2017-06-12 21:53:22: 正在保存 PartFile 1 之 5
+ 2017-06-12 21:53:22: 正在保存 PartFile 2 之 5
+ 2017-06-12 21:53:22: 正在保存 PartFile 3 之 5
+ 2017-06-12 21:53:22: 正在保存 PartFile 4 之 5
+ 2017-06-12 21:53:22: 正在保存 PartFile 5 之 5
+ 2017-06-12 21:53:22: 所有 PartFile 都已经保存。
+ 2017-06-12 21:53:22: aMule 已经关闭。
+ 2017-06-12 21:54:13: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-12 21:54:13: Checking if there is an instance already running...
+ 2017-06-12 21:54:13: No other instances are running.
+ 2017-06-12 21:54:13: 监听Socket: Ok.
+ 2017-06-12 21:54:13: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-12 21:54:13: 载入 PartFile 1 之 5
+ 2017-06-12 21:54:13: 载入 PartFile 2 之 5
+ 2017-06-12 21:54:13: 载入 PartFile 3 之 5
+ 2017-06-12 21:54:13: 载入 PartFile 4 之 5
+ 2017-06-12 21:54:13: 载入 PartFile 5 之 5
+ 2017-06-12 21:54:13: 所有 PartFile 已经载入。
+ 2017-06-12 21:54:13: 将文件/home/june/.aMule/Temp/002.part.met加入共享
+ 2017-06-12 21:54:13: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-12 21:54:13: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-12 21:54:13: Asio thread 1 started
+ 2017-06-12 21:54:13: Asio thread 2 started
+ 2017-06-12 21:54:13: Asio thread 3 started
+ 2017-06-12 21:54:13: Asio thread 4 started
+ 2017-06-12 21:57:54: 现在，正在退出主程序...
+ 2017-06-12 21:57:54: aMule 正在退出：中止内核。
+ 2017-06-12 21:57:54: 正在保存 PartFile 1 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 2 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 3 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 4 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 5 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 6 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 7 之 8
+ 2017-06-12 21:57:54: 正在保存 PartFile 8 之 8
+ 2017-06-12 21:57:54: 所有 PartFile 都已经保存。
+ 2017-06-12 21:57:54: aMule 已经关闭。
+Assertion failed: ../../src/BaseClient.cpp:ProcessPublicKeyPacket:2143: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1793a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x477e96]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493fdb]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec161fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9d6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec18317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4daac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4dabb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7fec4d3dc6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4faed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec58353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1d666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4eca9f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7fec4db1e830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2143): assert "Assert failure" failed in ProcessPublicKeyPacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessSignaturePacket:2169: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1793a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x46f1b6]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493f2f]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec161fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9d6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec18317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4daac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4dabb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7fec4d3dc6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4faed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec58353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1d666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4eca9f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7fec4db1e830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2169): assert "Assert failure" failed in ProcessSignaturePacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessPublicKeyPacket:2143: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1793a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x477e96]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493fdb]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec161fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9d6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec18317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4daac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4dabb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7fec4d3dc6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4faed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec58353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1d666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4eca9f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7fec4db1e830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2143): assert "Assert failure" failed in ProcessPublicKeyPacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessSignaturePacket:2169: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1793a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x46f1b6]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493f2f]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec161fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9c7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9cc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ed9d6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec18317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4daac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4dabb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f04a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f3f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7fec4c66f712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7fec4d3dc6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7fec4f4faed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec58353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4ec1d666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7fec4eca9f70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7fec4db1e830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2169): assert "Assert failure" failed in ProcessSignaturePacket().
+ 2017-06-12 21:58:07: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-12 21:58:07: Checking if there is an instance already running...
+ 2017-06-12 21:58:07: No other instances are running.
+ 2017-06-12 21:58:07: 监听Socket: Ok.
+ 2017-06-12 21:58:07: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-12 21:58:07: 载入 PartFile 1 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 2 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 3 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 4 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 5 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 6 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 7 之 8
+ 2017-06-12 21:58:07: 载入 PartFile 8 之 8
+ 2017-06-12 21:58:07: 所有 PartFile 已经载入。
+ 2017-06-12 21:58:07: 将文件/home/june/.aMule/Temp/002.part.met加入共享
+ 2017-06-12 21:58:07: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-12 21:58:07: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-12 21:58:07: Asio thread 2 started
+ 2017-06-12 21:58:07: Asio thread 1 started
+ 2017-06-12 21:58:07: Asio thread 3 started
+ 2017-06-12 21:58:07: Asio thread 4 started
+ 2017-06-13 00:02:14: 现在，正在退出主程序...
+ 2017-06-13 00:02:14: aMule 正在退出：中止内核。
+ 2017-06-13 00:02:14: 正在保存 PartFile 1 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 2 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 3 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 4 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 5 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 6 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 7 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 8 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 9 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 10 之 11
+ 2017-06-13 00:02:14: 正在保存 PartFile 11 之 11
+ 2017-06-13 00:02:14: 所有 PartFile 都已经保存。
+ 2017-06-13 00:02:14: aMule 已经关闭。
+Assertion failed: ../../src/BaseClient.cpp:ProcessPublicKeyPacket:2143: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1993a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x477e96]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493fdb]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a181fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9e6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9e7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9eb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9ec13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9ec75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9f6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1a317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722dcac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722dcbb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f47104a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f4713f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f471712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f43701de6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722fced5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a5a353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1f666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371aabf70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f4370920830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2143): assert "Assert failure" failed in ProcessPublicKeyPacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessSignaturePacket:2169: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1993a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x46f1b6]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493f2f]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a181fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9e6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9e7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9eb8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9ec13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9ec75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371b9f6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1a317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722dcac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722dcbb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f47104a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f4713f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f436f471712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f43701de6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f43722fced5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a5a353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371a1f666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f4371aabf70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f4370920830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2169): assert "Assert failure" failed in ProcessSignaturePacket().
+ 2017-06-13 00:02:22: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 00:02:22: Checking if there is an instance already running...
+ 2017-06-13 00:02:22: No other instances are running.
+ 2017-06-13 00:02:22: 监听Socket: Ok.
+ 2017-06-13 00:02:22: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 00:02:22: 载入 PartFile 1 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 2 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 3 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 4 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 5 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 6 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 7 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 8 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 9 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 10 之 11
+ 2017-06-13 00:02:22: 载入 PartFile 11 之 11
+ 2017-06-13 00:02:22: 所有 PartFile 已经载入。
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/005.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 00:02:22: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 00:02:22: Asio thread 1 started
+ 2017-06-13 00:02:22: Asio thread 2 started
+ 2017-06-13 00:02:22: Asio thread 3 started
+ 2017-06-13 00:02:22: Asio thread 4 started
+ 2017-06-13 00:17:41: 现在，正在退出主程序...
+ 2017-06-13 00:17:41: aMule 正在退出：中止内核。
+ 2017-06-13 00:17:41: 正在保存 PartFile 1 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 2 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 3 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 4 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 5 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 6 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 7 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 8 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 9 之 10
+ 2017-06-13 00:17:41: 正在保存 PartFile 10 之 10
+ 2017-06-13 00:17:41: 所有 PartFile 都已经保存。
+ 2017-06-13 00:17:41: aMule 已经关闭。
+Assertion failed: ../../src/BaseClient.cpp:ProcessPublicKeyPacket:2143: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c893a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x477e96]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493fdb]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c71fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494d6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494d7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494db8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494dc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494dc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494e6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c9317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f751508bac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f751508bbb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f751222004a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f75122203f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f7512220712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f7512f8d6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f75150abed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f7514809353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147ce666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751485af70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f75136cf830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2143): assert "Assert failure" failed in ProcessPublicKeyPacket().
+Assertion failed: ../../src/BaseClient.cpp:ProcessSignaturePacket:2169: Assertion 'Assert failure' failed. 
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c893a]
+[4] void std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_construct<wchar_t const*>(wchar_t const*, wchar_t const*, std::forward_iterator_tag) in amule[0x46f1b6]
+[5] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x493f2f]
+[6] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x495622]
+[7] non-virtual thunk to CryptoPP::PK_FinalTemplate<CryptoPP::TF_SignerImpl<CryptoPP::TF_SignatureSchemeOptions<CryptoPP::TF_SS<CryptoPP::PKCS1v15, CryptoPP::SHA1, CryptoPP::RSA, int>, CryptoPP::RSA, CryptoPP::PKCS1v15_SignatureMessageEncodingMethod, CryptoPP::SHA1> > >::~PK_FinalTemplate() in amule[0x4b1928]
+[8] wxAppConsoleBase::CallEventHandler(wxEvtHandler*, wxEventFunctor&, wxEvent&) const in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c71fe]
+[9] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494d6e7]
+[10] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494d7db]
+[11] wxEvtHandler::TryHereOnly(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494db8b]
+[12] wxEvtHandler::ProcessEventLocally(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494dc13]
+[13] wxEvtHandler::ProcessEvent(wxEvent&) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494dc75]
+[14] wxEvtHandler::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751494e6fa]
+[15] wxAppConsoleBase::ProcessPendingEvents() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147c9317]
+[16] wxApp::DoIdle() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f751508bac2]
+[17] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f751508bbb3]
+[18] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f751222004a]
+[19] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f75122203f0]
+[20] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f7512220712]
+[21] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f7512f8d6a7]
+[22] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f75150abed5]
+[23] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f7514809353]
+[24] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f75147ce666]
+[25] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f751485af70]
+[26] ?? in amule[0x440712]
+[27] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f75136cf830]
+[28] ?? in amule[0x452c19]
+
+../../src/BaseClient.cpp(2169): assert "Assert failure" failed in ProcessSignaturePacket().
+ 2017-06-13 00:17:55: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 00:17:55: Checking if there is an instance already running...
+ 2017-06-13 00:17:55: No other instances are running.
+ 2017-06-13 00:17:55: 监听Socket: Ok.
+ 2017-06-13 00:17:55: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 00:17:55: 载入 PartFile 1 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 2 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 3 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 4 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 5 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 6 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 7 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 8 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 9 之 10
+ 2017-06-13 00:17:55: 载入 PartFile 10 之 10
+ 2017-06-13 00:17:55: 所有 PartFile 已经载入。
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 00:17:55: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 00:17:56: Asio thread 1 started
+ 2017-06-13 00:17:56: Asio thread 2 started
+ 2017-06-13 00:17:56: Asio thread 3 started
+ 2017-06-13 00:17:56: Asio thread 4 started
+ 2017-06-13 00:23:18: 现在，正在退出主程序...
+ 2017-06-13 00:23:18: aMule 正在退出：中止内核。
+ 2017-06-13 00:23:18: 正在保存 PartFile 1 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 2 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 3 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 4 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 5 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 6 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 7 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 8 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 9 之 10
+ 2017-06-13 00:23:18: 正在保存 PartFile 10 之 10
+ 2017-06-13 00:23:18: 所有 PartFile 都已经保存。
+ 2017-06-13 00:23:18: aMule 已经关闭。
+
+(amule:16001): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 23
+
+(amule:16001): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 23
+
+(amule:16001): GLib-CRITICAL **: Source ID 37822 was not found when attempting to remove it
+Assertion failed: ../src/unix/sockunix.cpp:OnReadWaiting:143: Assertion 'm_fd != INVALID_SOCKET' failed. invalid socket ready for reading?
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*, char const*, char const*) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b4fa993a]
+[4] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu_net-3.0.so.0[0x7f07b5417fc6]
+[5] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f07b5894958]
+[6] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a0104a]
+[7] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a013f0]
+[8] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a01712]
+[9] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f07b376e6a7]
+[10] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f07b588ced5]
+[11] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b4fea353]
+[12] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b4faf666]
+[13] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b503bf70]
+[14] ?? in amule[0x440712]
+[15] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f07b3eb0830]
+[16] ?? in amule[0x452c19]
+
+../src/unix/sockunix.cpp(143): assert "m_fd != INVALID_SOCKET" failed in OnReadWaiting(): invalid socket ready for reading?
+
+(amule:16001): GLib-CRITICAL **: g_source_remove: assertion 'tag > 0' failed
+
+--------------------------------------------------------------------------------
+A fatal error has occurred and aMule has crashed.
+Please assist us in fixing this problem by posting the backtrace below in our
+'aMule Crashes' forum and include as much information as possible regarding the
+circumstances of this crash. The forum is located here:
+    http://forum.amule.org/index.php?board=67.0
+If possible, please try to generate a real backtrace of this crash:
+    http://wiki.amule.org/wiki/Backtraces
+
+----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
+Current version is: aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+Running on: Linux 4.8.0-53-generic x86_64
+
+[2] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b510690c]
+[3] ?? in /lib/x86_64-linux-gnu/libpthread.so.0[0x7f07b426a390]
+[4] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu_net-3.0.so.0[0x7f07b5417f4c]
+[5] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f07b5894958]
+[6] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a0104a]
+[7] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a013f0]
+[8] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f07b2a01712]
+[9] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f07b376e6a7]
+[10] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f07b588ced5]
+[11] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b4fea353]
+[12] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b4faf666]
+[13] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f07b503bf70]
+[14] ?? in amule[0x440712]
+[15] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f07b3eb0830]
+[16] ?? in amule[0x452c19]
+
+--------------------------------------------------------------------------------
+ 2017-06-13 12:40:44: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 12:40:44: Checking if there is an instance already running...
+ 2017-06-13 12:40:44: No other instances are running.
+ 2017-06-13 12:40:44: 监听Socket: Ok.
+ 2017-06-13 12:40:44: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 12:40:44: 载入 PartFile 1 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 2 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 3 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 4 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 5 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 6 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 7 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 8 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 9 之 10
+ 2017-06-13 12:40:44: 载入 PartFile 10 之 10
+ 2017-06-13 12:40:44: 所有 PartFile 已经载入。
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 12:40:44: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 12:40:44: Asio thread 1 started
+ 2017-06-13 12:40:44: Asio thread 3 started
+ 2017-06-13 12:40:44: Asio thread 4 started
+ 2017-06-13 12:40:44: Asio thread 2 started
+
+(amule:16784): GLib-CRITICAL **: Source ID 2217 was not found when attempting to remove it
+
+(amule:16784): GLib-WARNING **: /build/glib2.0-prJhLS/glib2.0-2.48.2/./glib/giounix.c:410Error while getting flags for FD: Bad file descriptor (9)
+
+
+--------------------------------------------------------------------------------
+A fatal error has occurred and aMule has crashed.
+Please assist us in fixing this problem by posting the backtrace below in our
+'aMule Crashes' forum and include as much information as possible regarding the
+circumstances of this crash. The forum is located here:
+    http://forum.amule.org/index.php?board=67.0
+If possible, please try to generate a real backtrace of this crash:
+    http://wiki.amule.org/wiki/Backtraces
+
+----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
+Current version is: aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+Running on: Linux 4.8.0-53-generic x86_64
+
+[2] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f305706690c]
+[3] ?? in /lib/x86_64-linux-gnu/libpthread.so.0[0x7f30561ca390]
+
+--------------------------------------------------------------------------------
+ 2017-06-13 12:46:24: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 12:46:24: Checking if there is an instance already running...
+ 2017-06-13 12:46:24: No other instances are running.
+ 2017-06-13 12:46:24: 监听Socket: Ok.
+ 2017-06-13 12:46:24: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 12:46:24: 载入 PartFile 1 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 2 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 3 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 4 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 5 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 6 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 7 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 8 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 9 之 10
+ 2017-06-13 12:46:24: 载入 PartFile 10 之 10
+ 2017-06-13 12:46:24: 所有 PartFile 已经载入。
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 12:46:24: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 12:46:25: Asio thread 1 started
+ 2017-06-13 12:46:25: Asio thread 2 started
+ 2017-06-13 12:46:25: Asio thread 3 started
+ 2017-06-13 12:46:25: Asio thread 4 started
+
+--------------------------------------------------------------------------------
+A fatal error has occurred and aMule has crashed.
+Please assist us in fixing this problem by posting the backtrace below in our
+'aMule Crashes' forum and include as much information as possible regarding the
+circumstances of this crash. The forum is located here:
+    http://forum.amule.org/index.php?board=67.0
+If possible, please try to generate a real backtrace of this crash:
+    http://wiki.amule.org/wiki/Backtraces
+
+----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
+Current version is: aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+Running on: Linux 4.8.0-53-generic x86_64
+
+[2] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f1aa80bb90c]
+[3] ?? in /lib/x86_64-linux-gnu/libpthread.so.0[0x7f1aa721f390]
+[4] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f1aa8849956]
+[5] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f1aa59b604a]
+[6] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f1aa59b63f0]
+[7] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f1aa59b6712]
+[8] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f1aa67236a7]
+[9] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f1aa8841ed5]
+[10] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f1aa7f9f353]
+[11] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f1aa7f64666]
+[12] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f1aa7ff0f70]
+[13] ?? in amule[0x440712]
+[14] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f1aa6e65830]
+[15] ?? in amule[0x452c19]
+
+--------------------------------------------------------------------------------
+ 2017-06-13 12:46:42: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 12:46:42: Checking if there is an instance already running...
+ 2017-06-13 12:46:42: No other instances are running.
+ 2017-06-13 12:46:42: 监听Socket: Ok.
+ 2017-06-13 12:46:42: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 12:46:42: 载入 PartFile 1 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 2 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 3 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 4 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 5 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 6 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 7 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 8 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 9 之 10
+ 2017-06-13 12:46:42: 载入 PartFile 10 之 10
+ 2017-06-13 12:46:42: 所有 PartFile 已经载入。
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 12:46:42: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 12:46:42: Asio thread 2 started
+ 2017-06-13 12:46:42: Asio thread 1 started
+ 2017-06-13 12:46:42: Asio thread 3 started
+ 2017-06-13 12:46:42: Asio thread 4 started
+
+(amule:17293): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 23
+
+(amule:17293): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 23
+
+(amule:17293): GLib-CRITICAL **: Source ID 6633 was not found when attempting to remove it
+
+--------------------------------------------------------------------------------
+A fatal error has occurred and aMule has crashed.
+Please assist us in fixing this problem by posting the backtrace below in our
+'aMule Crashes' forum and include as much information as possible regarding the
+circumstances of this crash. The forum is located here:
+    http://forum.amule.org/index.php?board=67.0
+If possible, please try to generate a real backtrace of this crash:
+    http://wiki.amule.org/wiki/Backtraces
+
+----------------------------=| BACKTRACE FOLLOWS: |=----------------------------
+Current version is: aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+Running on: Linux 4.8.0-53-generic x86_64
+
+[2] ?? in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f0960f3890c]
+[3] ?? in /lib/x86_64-linux-gnu/libpthread.so.0[0x7f096009c390]
+[4] ?? in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f09616c6935]
+[5] g_main_context_dispatch in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f095e83304a]
+[6] ?? in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f095e8333f0]
+[7] g_main_loop_run in /lib/x86_64-linux-gnu/libglib-2.0.so.0[0x7f095e833712]
+[8] gtk_main in /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0[0x7f095f5a06a7]
+[9] wxGUIEventLoop::DoRun() in /usr/lib/x86_64-linux-gnu/libwx_gtk2u_core-3.0.so.0[0x7f09616beed5]
+[10] wxEventLoopBase::Run() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f0960e1c353]
+[11] wxAppConsoleBase::MainLoop() in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f0960de1666]
+[12] wxEntry(int&, wchar_t**) in /usr/lib/x86_64-linux-gnu/libwx_baseu-3.0.so.0[0x7f0960e6df70]
+[13] ?? in amule[0x440712]
+[14] __libc_start_main in /lib/x86_64-linux-gnu/libc.so.6[0x7f095fce2830]
+[15] ?? in amule[0x452c19]
+
+--------------------------------------------------------------------------------
+ 2017-06-13 12:47:03: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 12:47:03: Checking if there is an instance already running...
+ 2017-06-13 12:47:03: No other instances are running.
+ 2017-06-13 12:47:03: 监听Socket: Ok.
+ 2017-06-13 12:47:03: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 12:47:03: 载入 PartFile 1 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 2 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 3 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 4 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 5 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 6 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 7 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 8 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 9 之 10
+ 2017-06-13 12:47:03: 载入 PartFile 10 之 10
+ 2017-06-13 12:47:03: 所有 PartFile 已经载入。
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 12:47:03: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 12:47:04: Asio thread 1 started
+ 2017-06-13 12:47:04: Asio thread 2 started
+ 2017-06-13 12:47:04: Asio thread 4 started
+ 2017-06-13 12:47:04: Asio thread 3 started
+ 2017-06-13 12:48:08: Initialising aMule SVN compiled with wxGTK2 v3.0.2 and Boost 1.58
+ 2017-06-13 12:48:08: Checking if there is an instance already running...
+ 2017-06-13 12:48:08: No other instances are running.
+ 2017-06-13 12:48:08: 监听Socket: Ok.
+ 2017-06-13 12:48:08: 从 /home/june/.aMule/Temp 载入临时文件。
+ 2017-06-13 12:48:08: 载入 PartFile 1 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 2 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 3 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 4 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 5 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 6 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 7 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 8 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 9 之 10
+ 2017-06-13 12:48:08: 载入 PartFile 10 之 10
+ 2017-06-13 12:48:08: 所有 PartFile 已经载入。
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/003.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/004.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/007.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/008.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/009.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/010.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/011.part.met加入共享
+ 2017-06-13 12:48:08: 将文件/home/june/.aMule/Temp/012.part.met加入共享
+ 2017-06-13 12:48:08: Asio thread 1 started
+ 2017-06-13 12:48:08: Asio thread 3 started
+ 2017-06-13 12:48:08: Asio thread 2 started
+ 2017-06-13 12:48:08: Asio thread 4 started
+ 2017-06-13 12:50:47: 现在，正在退出主程序...
+ 2017-06-13 12:50:47: aMule 正在退出：中止内核。
+ 2017-06-13 12:50:47: 正在保存 PartFile 1 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 2 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 3 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 4 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 5 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 6 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 7 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 8 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 9 之 10
+ 2017-06-13 12:50:47: 正在保存 PartFile 10 之 10
+ 2017-06-13 12:50:47: 所有 PartFile 都已经保存。
+ 2017-06-13 12:50:47: aMule 已经关闭。
